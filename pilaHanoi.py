@@ -5,9 +5,10 @@ class nodoPila(object):
 
 class Pila(object):
     """ Clase Pila"""
-    def __init__(self):
+    def __init__(self, num):
         self.cima = None  # de base no hay nada
-        self.tamanio = 0 
+        self.tamanio = 0
+        self.num = num
 
     def push(self, v):
         nodo = nodoPila()
@@ -25,13 +26,13 @@ class Pila(object):
 
     def imprimir(self):
         '''Muestra el contenido de la pila (sin modificarla()'''
-        pila_aux = Pila()  # pila auxiliar donde vamos a ir metiendo los nodos cuando los desapilemos de la original
+        pila_aux = Pila(0)  # pila auxiliar donde vamos a ir metiendo los nodos cuando los desapilemos de la original
         lista_pila = []
 
         # hasta que la pila esté vacía, vamos a desapilar sus elementos para ir contbilizandolos
         while not (self.cima is None):
             v = self.pop()  # guardamos el valor del nodo que desapilamos
-            print(v)  # lo imprimimos
+            #print(v)  # lo imprimimos
             lista_pila.append(v)
             pila_aux.push(v)  # y lo apilamos en la auxiliar
 
@@ -42,11 +43,3 @@ class Pila(object):
         
         return lista_pila
 
-
-
-#-----------------------------------------------
-pila_1 = Pila()
-pila_1.push(1)
-pila_1.push(2)
-pila_1.push(3)
-pila_1.imprimir()
